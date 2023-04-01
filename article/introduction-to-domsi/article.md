@@ -36,9 +36,7 @@ The frustrating thing is, websites are so easy for users to read. There’s a ni
 Meet Domsi. “Dom” as in “Document Object Model”, and “Si” as in “See”. The goal of this library is to query elements by what we can see: CSS styles, text content, and hierarchy. To show you how easy it is to do this, let’s start with a simple Domsi selector.
 
 ```javascript
-{
-    tagName: 'a';
-}
+{ tagName: 'a' }
 ```
 
 Nothing impressive, we’re just finding all the anchor elements on the page. But let’s give it a go anyway. Head over to the Kiwi page. Domsi should already be loaded globally, so you can go ahead and use it with `domsi.find` or `domsi.findAll`. Let’s run the following code in the console:
