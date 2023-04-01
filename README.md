@@ -1,2 +1,0 @@
-# ImGabrielPerry.github.io
-Website
