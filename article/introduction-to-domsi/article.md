@@ -1,4 +1,15 @@
-# Introduction to Domsi
+<header>
+<h1>Introduction to Domsi</h1>
+
+<p>
+  Unleash the true potential of web-scraping through Domsi, a web scraping library that exploits DOM hierarchy.
+</p>
+
+<p>
+  <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="#" target="_blank" rel="noopener noreferrer">Demo</a>
+</p>
+
+</header>
 
 ## Scraping with Domsi
 

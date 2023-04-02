@@ -1,10 +1,18 @@
-# Murder Mystery Game
+<header>
+<h1>Murder Mystery Game</h1>
 
-<p align=center>
-  Post in progress! Check back again.
+<p>
+  How I wrote a text-based game engine with Webpack, custom loaders, and a generous serving of cryptography.
 </p>
 
+<p>
+  <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="#" target="_blank" rel="noopener noreferrer">Demo</a>
+</p>
+
+</header>
+
 ## A Victorian Murder Mystery
+
 During my free time, I enjoy helping out with event organising. In 2022, there was an online event with a Victorian Murder Mystery theme. As part of the event, they wanted to include a puzzle game that the attendees could play.
 
 Working with writers and artists, we put together a simple concept: 6-letter codes would be hidden on the event’s website and in the social media platforms. Observant players could solve the puzzles to get the code, then enter it into the game. Each code would unlock a new chapter of the storyline, with more puzzles to solve to uncover clues that would reveal the murderer.
@@ -14,7 +22,9 @@ The 6-letter codes would be hard to find, and the puzzles would range from trivi
 One additional note: the game would be hosted on the event website, but after the event, it should also be downloadable and playable offline. This would come into play later.
 
 *Cue ominous music and foreshadowing*
+
 ## The Engine
+
 As the sole developer of the game engine with only a few weeks to work on this, I had to make this engine simple but powerful. I turned to ol’ reliable: my Webpack boilerplate with React, Typescript, and SCSS.
 
 The first scene was easy enough: a 6-letter input that would accept valid codes and reject invalid ones.
@@ -87,13 +97,16 @@ From there, I added more node types. There’s a text input node that allows sto
 There’s also an image node that allows users to click on various parts of the image to choose an option.
 
 Now, we can code the story in the JSON format and we’re good to go! Or are we?
+
 ## A Gaping Flaw
 Remember when I said we needed the game to be playable offline? That meant that we couldn’t rely on a server to check if the 6-letter codes were valid. All the information had to be stored on the frontend: codes, storyline, and all.
 
 That meant if a tech-savvy player dug around in the source, they would quickly find all the 6-letter codes as well as the entire storyline. If they wanted to, they could also spoil the ending even before we released the final chapter. Not cool.
 
 Thankfully, my inner nerd came to the rescue. Over the years, I’ve dug into cryptography concepts and familiarised myself with concepts such as encryption and digital signatures. This would be helpful.
+
 ### A Simple Way
+
 A naive solution would be to serialise every chapter’s JSON into a string and encrypt it with the 6-letter code as the key. When a user enters the code, the engine would attempt to decrypt all the chapters. If any of the chapters was successfully decrypted, then it meant that it was a valid code. Otherwise, we reject it.
 
 [diagram of encryption -> show each chapter being encrypted with a diff key each]
@@ -105,6 +118,7 @@ Is it secure? Yes. But it’s also very slow. Each chapter can reach lengths of 
 Can we do better?
 
 ### A Better Way
+
 It turns out that we don’t need to decrypt the entire string. Let’s assume we have the encrypted chapter as a string. If we hash the 6-letter code and pair it with the encrypted chapter, we only need to compare the hash to ensure that the chapter is a match. Only then do we take the time to decrypt the chapter.
 
 One more issue is that because the game has to be viewable offline, it needs to also work in a local file context. This means that the browser’s crypto API is not always available. We’ll need to implement an encryption and decryption function ourselves (uh-oh), and ideally keep it simple (double uh-oh). Thankfully, since we aren’t dealing with sensitive data, we can get away with this. Yay1
@@ -122,7 +136,9 @@ Yup! I sent this to a friend who works in digital security to crack. He pored ov
 Fine, you win Jason. But hey, if we wanted the data to be secure, we would be asking for 128-bit keys rather than 6-letter codes (which amount to just above 28 bits). The idea isn’t to make the code uncrackable, it’s to make it more difficult than actually solving the puzzles.
 
 With that, we’re done with the encryption. Now, whenever we write a chapter, all we have to do is to encrypt it, prepend the hash of its 6-letter code, then add it to the array. Easy, right? Most definitely not!
+
 ## Webpack to the Rescue
+
 The best way to get me to code is to present me with a mind-numbingly banal task, because I’ll write a script to automate the heck out of it.
 
 Thankfully, Webpack allows us to write custom loaders. I added a filter to take in JSON files with the `.puzzle.json` extension, and convert it into the encrypted array of strings.
@@ -153,8 +169,10 @@ All I have to do is import it in the code as such:
 import blah blah from “../data.puzzle.json”
 ```
 
-And Webpack does everything for me. It’s a lifesaver during the development process, since I could edit the JSON in development mode, and have it refresh instantly. Bamm! 
+And Webpack does everything for me. It’s a lifesaver during the development process, since I could edit the JSON in development mode, and have it refresh instantly. Bamm!
+
 ## Case Closed
+
 The game engine was deployed to the website along with the encrypted story, and the event’s attendees got to cracking the case. By the time the event came to a close, the attendees have solved the murder mystery, and our detectives ride their horse-drawn carriage into the sunset.
 
 And while we may enjoy a happy ending, the true treasure was the programming concepts we learnt along the way.
