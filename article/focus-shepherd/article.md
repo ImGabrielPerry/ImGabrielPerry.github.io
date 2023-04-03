@@ -64,6 +64,6 @@ Let’s be more careful about where our attention is being drawn to, and practis
 
 You can install the script <a href="https://github.com/Kenneth-LJS/Focus-Shepherd" target="_blank" rel="noopener noreferrer">here</a>.
 
-## But Wait!
+## Bonus!
 
 I also wrote another TamperMonkey script to stop me from endlessly surfing videos on YouTube shorts. No more autoplaying videos for hours! Download it <a href="https://github.com/Kenneth-LJS/No-YT-Shorts" target="_blank" rel="noopener noreferrer">here</a>.
