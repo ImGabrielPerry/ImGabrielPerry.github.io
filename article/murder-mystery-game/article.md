@@ -371,12 +371,12 @@ module.exports = {
                 type: 'javascript/auto',
                 use: [
                     {
-                        loader: 'json-loader',
+                        loader: 'json-loader'
                     },
                     {
-                        loader: path.resolve('loaders/puzzle-json.js'),
-                    },
-                ],
+                        loader: path.resolve('loaders/puzzle-json.js')
+                    }
+                ]
             }
         }
     }
