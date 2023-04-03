@@ -358,7 +358,8 @@ The best way to get me to code is to present me with a mind-numbingly banal task
 
 Thankfully, Webpack allows us to write custom loaders. I added a filter to take in JSON files with the `.puzzle.json` extension, and convert it into the encrypted array of strings.
 
-webpack.config
+`webpack.config`:
+
 ```javascript
 module.exports = {
     ...
@@ -382,7 +383,7 @@ module.exports = {
 }
 ```
 
-loaders/puzzle-json.ts
+`loaders/puzzle-json.ts`:
 ```javascript
 import { encodeSecretString } from '../puzzle-crypto';
 
