@@ -1,30 +1,10 @@
-<div style="display: none;">
-Outline:
-A Victorian Murder Mystery
-In 2022, there was an online event that featured a Murder Mystery game. Working with writers and artists, I needed to come up with a game engine for a puzzle.
-Gameplay: people find codes hidden in the event posters and website. Then they will have to enter the code to read the story and solve more puzzles
-One caveat, the game had to be available for offline play in future through downloading into a HTML file
-Building the App
-Webpack -> for offline play too, so it had to be 100% local and serverless
-The story is written as a JSON file, with separate nodes that can be traversed.
-Link to the source code of the story
-Problem with serverless: people can read the source code and find the storyline codes
-Cryptography to the rescue
-Using cryptography signing methods, I encrypted the code
-I had to use my own hashing library because offline play = no access to the crypto library in the browser
-Each scene is encrypted by its 6-letter code, then the hashed version of the code is prepended to the encrypted story. From there, the scenes are stored in an array.
-When the user enters the code, the hashed code is checked against each scene line to find the corresponding scene
-Show the built source code
-Conclusion:
-We found the murderer!
-And we’ve thwarted anyone who tried to cheese their way into a solution
-</div>
 <header>
+
 <h1>Murder Mystery Game</h1>
 
 <p>How I wrote a text-based game engine with Webpack, custom loaders, and a generous serving of cryptography.</p>
 
-<p><a href="#" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="#" target="_blank" rel="noopener noreferrer">Play the Game</a></p>
+<p><a href="#" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="/project/victorian-murder-mystery/" target="_blank" rel="noopener noreferrer">Play the Game</a></p>
 
 </header>
 
@@ -52,7 +32,7 @@ The first scene was easy enough: a 6-letter input that would accept valid codes 
 I made sure it worked well on mobile devices too.
 
 <p align=center>
-  <video src="./static/code-mobile.mp4" style="width: min(100%, 800px)" preload="auto" muted autoplay loop playsinline data-wf-ignore="true" data-object-fit="cover">
+  <video src="./static/code-mobile.mp4" style="width: min(100%, 300px)" preload="auto" muted autoplay loop playsinline data-wf-ignore="true" data-object-fit="cover">
 </p>
 
 That was the easy part. Once the player has entered a code, we render an interactive chapter. Players needed to choose dialogue options and solve puzzles. I decided the best way to handle this is to store the game data in a JSON format.
@@ -89,8 +69,8 @@ The second feature was to have an internal state. If we’re able to store flags
 
 These two features aren’t trivially compatible. If I only wanted the ability to backtrack, then I can simply keep track of:
 
-The history of nodes rendered
-The current node that the player is at
+1. The history of nodes rendered
+2. The current node that the player is at
 
 <p align=center>
   <img src="./static/history-backtrack-a1.png" style="width: min(100%, 600px)">
@@ -110,9 +90,9 @@ If the player selects an earlier option, then I can slice off the history at tha
 
 If I only wanted the ability to have an internal state, then I will need to keep track of:
 
-The history of nodes rendered
-The current node that the player is at
-A global state
+1. The history of nodes rendered
+2. The current node that the player is at
+3. A global state
 
 For example, consider a game tree that looks like this:
 
