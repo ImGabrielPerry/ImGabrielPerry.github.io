@@ -384,6 +384,7 @@ module.exports = {
 ```
 
 `loaders/puzzle-json.ts`:
+
 ```javascript
 import { encodeSecretString } from '../puzzle-crypto';
 
@@ -450,11 +451,11 @@ If you’d like to take a crack at solving this mystery, you can check it out <a
 - Chapter 3: SILENT
 - Chapter 4: SENSES
 - Chapter 5: SWORDS
-- Chapter 6: LITTLE, ISLAND, FURCON
+- Chapter 6: COBWEB
 - Chapter 7: FACADE
 - Chapter 8: NOVELS
 - Chapter 9: TREPID
-- Chapter 10: COFFEE, ACCESS, FIASCO
+- Chapter 10: WHIMSY
 - Chapter 11: ESCAPE
 - Chapter 12: JACKAL
 - Chapter 13: VOODOO
