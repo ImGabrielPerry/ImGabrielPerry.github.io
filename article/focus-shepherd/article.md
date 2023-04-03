@@ -3,7 +3,7 @@
 
 <p>Why I wrote a TamperMonkey script for mindful browsing</p>
 
-<p><a href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+<p><a href="https://github.com/Kenneth-LJS/Focus-Shepherd" target="_blank" rel="noopener noreferrer">GitHub</a> | <p><a href="https://github.com/Kenneth-LJS/Focus-Shepherd/raw/main/focus-shepherd.user.js" target="_blank" rel="noopener noreferrer">Install</a>
 
 </header>
 
@@ -62,8 +62,8 @@ I’m a bit of a workaholic. After a long day of work, nothing beats coming back
 
 Let’s be more careful about where our attention is being drawn to, and practise mindfulness!
 
-You can download the script <a href="#" target="_blank" rel="noopener noreferrer">here</a>.
+You can download the script <a href="https://github.com/Kenneth-LJS/Focus-Shepherd" target="_blank" rel="noopener noreferrer">here</a>.
 
 ## But Wait!
 
-I also wrote another TamperMonkey script to stop me from endlessly surfing videos on YouTube shorts. This script redirects URLs of this format: `https://www.youtube.com/shorts/gpPLgS7ZdLQ` into this format: `https://www.youtube.com/watch?v=gpPLgS7ZdLQ`. No more autoplaying videos for hours! Download it <a href="#" target="_blank" rel="noopener noreferrer">here</a>.
+I also wrote another TamperMonkey script to stop me from endlessly surfing videos on YouTube shorts. No more autoplaying videos for hours! Download it <a href="https://github.com/Kenneth-LJS/No-YT-Shorts" target="_blank" rel="noopener noreferrer">here</a>.
